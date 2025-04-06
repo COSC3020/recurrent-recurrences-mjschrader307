@@ -33,25 +33,23 @@ Answers:
 1.
 
 $$
-T(n) = T(\frac{n}{13}) + 5 \\
-= 13(T(\frac{n}{169}) + \frac{5}{13}) + 5 \\
-= 13T(\frac{n}{169}) + 10 \\
+T(n) = T(\frac{n}{13}) + 5\\
+= T(\frac{n}{169}) + 5 + 5 \\
+= T(\frac{n}{169}) + 10 \\
 ... \\
-= 13^{(i - 1)}T(n \cdot 13^{-i}) + 5i
+= T(n \cdot 13^{-i}) + 5i
 $$
 
 Let $i = \log_{13}(n)$:
 
 $$
-13^{\log_{13}(n) - 1}T(n \cdot 13^{-\log_{13}(n)}) + 5\log_{13}(n) \\
-= \frac{1}{13}n \cdot T(n \cdot \frac{1}{n}) + 5\log_{13}(n) \\
-= 5 \log_{13}(n) + \frac{1}{13}T(1) \\
-= 5 \log_{13}(n) + \frac{1}{13}n
+T(n \cdot 13^{-\log_{13}(n)}) + 5\log_{13}(n) \\
+= T(n \cdot \frac{1}{n}) + 5\log_{13}(n) \\
+= 5 \log_{13}(n) + T(1) \\
+= 5 \log_{13}(n) + 1
 $$
 
-$5\log_{13}(n) + \frac{1}{13}n \in \Theta(n)$
-
-because the linear term is the dominant one.
+$5\log_{13}(n) \in \Theta(\log(n))$
 
 2.
 
@@ -74,7 +72,7 @@ $$
 
 $5\log_{13}(n) + n \in \Theta(n)$
 
-because the linear term is the dominant one. There was a slight power difference between this function and the first one, which ended up not making a difference.
+because the linear term is the dominant one.
 
 3.
 
